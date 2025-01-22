@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Ekitaldiak extends Model
 {
     use HasFactory;
@@ -12,4 +13,9 @@ class Ekitaldiak extends Model
     protected $table = 'ekitaldiaks';
 
     protected $fillable = ['izena', 'data', 'azalpena'];
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

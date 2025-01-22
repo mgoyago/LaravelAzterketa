@@ -34,25 +34,25 @@ Authorization: Bearer 6|RtF7iQLVl5Ov437vnvOrXCmhkw5IvBkGQ5K3agHK20aa881f
 Accept: application/json
 
 ### POST ekitaldiak store
-POST {{url}}/api/ekitaldiak
+POST {{url}}/api/ekitaldia
 Content-Type: application/json
 Accept: application/json
 
 {
-  "izena": "Ekitaldi Proba4",
-  "data": "2025-04-25",
-  "azalpena": "Deskribapena 4"
+  "izena": "Ekitaldi Proba5",
+  "data": "2025-05-25",
+  "azalpena": "Deskribapena 5"
 }
 
 ### GET ekitaldiak ikusi
-GET {{url}}/api/ekitaldiak
+GET {{url}}/api/ekitaldia
 Accept: application/json
 
 ### GET ekitaldiak id=2 duena
-GET {{url}}/api/ekitaldiak/2
+GET {{url}}/api/ekitaldia/2
 
 ###
-PUT {{url}}/api/ekitaldiak/1
+PUT {{url}}/api/ekitaldia/1
 Content-Type: application/json
 Accept: application/json
 
@@ -63,11 +63,33 @@ Accept: application/json
 }
 
 ###
-DELETE {{url}}/api/ekitaldiak/3
+DELETE {{url}}/api/ekitaldia/3
 Accept: application/json
 
 
 ### Dentistak ikusi
 GET {{url}}/api/dentistak
+Authorization: Bearer 9|ulJy5gdddiiYAKEhQbeQiR0U4GTZnpedms4FDeH637dddaca
+Accept: application/json
+
+###
+POST {{url}}/api/ekitaldiak/4/sartu
+Content-Type: application/json
+Accept: application/json
+
+{
+  "user_id" : "4"
+}
+
+###
+GET {{url}}/api/partehartzaileak/2
+Accept: application/json
+
+###
+GET {{url}}/api/ekitaldiak/2
+Accept: application/json
+
+###
+POST {{url}}/api/izenaeman/5
 Authorization: Bearer 9|ulJy5gdddiiYAKEhQbeQiR0U4GTZnpedms4FDeH637dddaca
 Accept: application/json

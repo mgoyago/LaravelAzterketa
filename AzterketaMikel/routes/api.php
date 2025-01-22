@@ -16,8 +16,15 @@ Route::middleware('auth:sanctum')->post('/logout', [AuthController::class, 'logo
 
 use App\Http\Controllers\EkitaldiakController;
 
-Route::apiResource('ekitaldiak', EkitaldiakController::class);
+Route::apiResource('ekitaldia', EkitaldiakController::class);
 
 use App\Http\Controllers\DentistController;
 
 Route::middleware(['auth:sanctum'])->get('/dentistak', [DentistController::class, 'index']);
+
+use App\Http\Controllers\EkitaldiakUserController;
+
+Route::post('/ekitaldiak/{Id}/sartu', [EkitaldiakUserController::class, 'userEkitaldianSartu']);
+Route::get('/partehartzaileak/{Id}', [EkitaldiakUserController::class, 'parteHartzaileakIkusi']);
+Route::get('/ekitaldiak/{Id}', [EkitaldiakUserController::class, 'nireEkitaldiakIkusi']);
+Route::middleware('auth:sanctum')->post('/izenaeman/{Id}', [EkitaldiakUserController::class, 'ekitaldianSartu']);
