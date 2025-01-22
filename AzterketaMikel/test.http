@@ -1,0 +1,34 @@
+@url= http://localhost:8000
+
+### POST user register
+POST {{url}}/api/register
+Accept: application/json
+Content-Type: application/json
+
+{
+    "name" : "Koxme",
+    "abizena" : "Goya",
+    "dni" : "72602839G",
+    "jaiotze_data" : "2004-02-27",
+    "rola" : "dentista",
+    "email" : "koxme@koxme.koxme",
+    "password" : "pasahitza",
+    "password_confirmation" : "pasahitza"
+}
+
+### POST user login
+# @name login
+POST {{url}}/api/login
+Accept: application/json
+Content-Type: application/json
+
+{
+    "email" : "koxme@koxme.koxme",
+    "password" : "pasahitza"
+}
+
+### POST user logout
+POST {{url}}/api/logout
+#tokena eskuz jarri!!!!!
+Authorization: Bearer 3|7QzEAamGOBC4gkotkE4s8o4umGesTzuHk9RSFLqo23272114
+Accept: application/json
