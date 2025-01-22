@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ekitaldiak extends Model
 {
-    /** @use HasFactory<\Database\Factories\EkitaldiakFactory> */
     use HasFactory;
 
-    protected $fillable = ['name', 'data', 'azalpena'];
+    protected $table = 'ekitaldiaks';
+
+    protected $fillable = ['izena', 'data', 'azalpena'];
 }

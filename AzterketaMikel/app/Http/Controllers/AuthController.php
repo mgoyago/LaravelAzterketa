@@ -15,7 +15,7 @@ class AuthController extends Controller
             'abizena' => 'required|max:255',
             'dni' => 'required|max:255',
             'jaiotze_data' => 'required',
-            'rola' => 'required|max:255',
+            'role' => 'required|max:255',
             'email' => 'required|email|unique:users',
             'password' => 'required|confirmed'
         ]);

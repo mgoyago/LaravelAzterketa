@@ -13,3 +13,11 @@ use App\Http\Controllers\AuthController;
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::middleware('auth:sanctum')->post('/logout', [AuthController::class, 'logout']);
+
+use App\Http\Controllers\EkitaldiakController;
+
+Route::apiResource('ekitaldiak', EkitaldiakController::class);
+
+use App\Http\Controllers\DentistController;
+
+Route::middleware(['auth:sanctum'])->get('/dentistak', [DentistController::class, 'index']);

@@ -1,49 +1,54 @@
 <?php
-
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreEkitaldiakRequest;
-use App\Http\Requests\UpdateEkitaldiakRequest;
 use App\Models\Ekitaldiak;
+use Illuminate\Http\Request;
 
 class EkitaldiakController extends Controller
 {
-    //Ekitaldi guztiak ikusi
     public function index()
     {
-        $ekitaldiak = Ekitaldia::all();
+        $ekitaldiak = Ekitaldiak::all();
         return response()->json($ekitaldiak);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreEkitaldiakRequest $request)
+    public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'izena' => 'required|string|max:255',
+            'data' => 'required|date',
+            'azalpena' => 'nullable|string',
+        ]);
+
+        $ekitaldiak = Ekitaldiak::create($validated);
+        return response()->json($ekitaldiak, 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Ekitaldiak $ekitaldiak)
+    public function show($id)
     {
-        //
+        $ekitaldiak = Ekitaldiak::findOrFail($id);
+        return response()->json($ekitaldiak);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateEkitaldiakRequest $request, Ekitaldiak $ekitaldiak)
+    public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'izena' => 'required|string|max:255',
+            'data' => 'required|date',
+            'azalpena' => 'nullable|string',
+        ]);
+
+        $ekitaldiak = Ekitaldiak::findOrFail($id);
+        $ekitaldiak->update($validated);
+
+        return response()->json($ekitaldiak);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Ekitaldiak $ekitaldiak)
+    public function destroy($id)
     {
-        //
+        $ekitaldiak = Ekitaldiak::findOrFail($id);
+        $ekitaldiak->delete();
+
+        return response()->json(['message' => 'Ekitaldiak eliminado correctamente']);
     }
 }

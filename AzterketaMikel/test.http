@@ -6,12 +6,12 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "name" : "Koxme",
-    "abizena" : "Goya",
+    "name" : "Leire",
+    "abizena" : "Abizen",
     "dni" : "72602839G",
-    "jaiotze_data" : "2004-02-27",
-    "rola" : "dentista",
-    "email" : "koxme@koxme.koxme",
+    "jaiotze_data" : "2004-03-27",
+    "role" : "admin",
+    "email" : "leire@koxme.koxme",
     "password" : "pasahitza",
     "password_confirmation" : "pasahitza"
 }
@@ -23,12 +23,51 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "email" : "koxme@koxme.koxme",
+    "email" : "aritz@koxme.koxme",
     "password" : "pasahitza"
 }
 
 ### POST user logout
 POST {{url}}/api/logout
 #tokena eskuz jarri!!!!!
-Authorization: Bearer 3|7QzEAamGOBC4gkotkE4s8o4umGesTzuHk9RSFLqo23272114
+Authorization: Bearer 6|RtF7iQLVl5Ov437vnvOrXCmhkw5IvBkGQ5K3agHK20aa881f
+Accept: application/json
+
+### POST ekitaldiak store
+POST {{url}}/api/ekitaldiak
+Content-Type: application/json
+Accept: application/json
+
+{
+  "izena": "Ekitaldi Proba4",
+  "data": "2025-04-25",
+  "azalpena": "Deskribapena 4"
+}
+
+### GET ekitaldiak ikusi
+GET {{url}}/api/ekitaldiak
+Accept: application/json
+
+### GET ekitaldiak id=2 duena
+GET {{url}}/api/ekitaldiak/2
+
+###
+PUT {{url}}/api/ekitaldiak/1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "izena": "Ekitaldi Eguneratua",
+  "data": "2025-03-15",
+  "azalpena": "Deskribapena eguneratua"
+}
+
+###
+DELETE {{url}}/api/ekitaldiak/3
+Accept: application/json
+
+
+### Dentistak ikusi
+GET {{url}}/api/dentistak
+Authorization: Bearer 9|ulJy5gdddiiYAKEhQbeQiR0U4GTZnpedms4FDeH637dddaca
 Accept: application/json
